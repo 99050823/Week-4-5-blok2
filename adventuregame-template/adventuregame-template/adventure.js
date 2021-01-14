@@ -1,24 +1,21 @@
 var image = document.getElementById("image");
+var itemImg = document.getElementById("item")
 
 function level1Baai () {
     image.src = "Images/Bay.jpg"
 
-    document.getElementById("1").innerHTML = "Keuze 1 = Ga het bos in";
-    document.getElementById("2").innerHTML = "Keuze 2 = Schiet met een pijl op de vastgeknoopte boot. En de gebruik een roeispaan om de Oceaan op te varen.(Pijl en boog)"
-    document.getElementById("3").innerHTML = "Keuze 3 = Je hebt je bedacht en komt tot het besef dat deze missie te moeilijk is en geeft op."
-
-    document.getElementById("description").innerHTML = "Je komt aan in de baai en je zoektocht naar de schat begint";
+    document.getElementById("description").innerHTML = "Je komt aan in de baai en je zoektocht naar de schat begint. <br><br> Keuze 1 = Ga het bos in<br> Keuze 2 = Schiet met een pijl op de vastgeknoopte boot. En de gebruik een roeispaan om de Oceaan op te varen.(Pijl en boog)<br> Keuze 3 = Je hebt je bedacht en komt tot het besef dat deze missie te moeilijk is en geeft op.";
     document.getElementById("title").innerHTML = "Level 1 Baai";
 
-    button1.onclick = function() {
-        Level2Bos();
-    }
+    button1.onclick = Level2Bos;
+    
     button2.onclick = function() {
-        Level4Oceaan(); //item (1)
-    }
+        Level4Oceaan(); //item 1
+    } 
+    
     button3.onclick = function() {
         GameOverScene();
-        alert("Je hebt opgegeven en keert terug naar huis. Volgende keer beter.")
+        alert("Je hebt opgegeven en keert terug naar huis. Volgende keer beter.");
     }
 
 }
@@ -26,11 +23,7 @@ function level1Baai () {
 function Level2Bos () { 
     image.src = "Images/Bos.jfif" 
 
-    document.getElementById("1").innerHTML = "Keuze 1 = Door de bomen zie een opening die uitkomt bij een klif. Ga naar de klif?";
-    document.getElementById("2").innerHTML = "Keuze 2 = In de verte zie een open plek. Ga naar de open plek?";
-    document.getElementById("3").innerHTML = "Keuze 3 = Loop dieper het bos in?";
-
-    document.getElementById("description").innerHTML = "Je loopt het bos in";
+    document.getElementById("description").innerHTML = "Je loopt het bos in <br> <br>Keuze 1 = Door de bomen zie een opening die uitkomt bij een klif. Ga naar de klif?<br> Keuze 2 = In de verte zie een open plek. Ga naar de open plek?<br> Keuze 3 = Loop dieper het bos in?";
     document.getElementById("title").innerHTML = "Level 2 Bos";
 
     button1.onclick = function() {
@@ -38,7 +31,7 @@ function Level2Bos () {
     }
     button2.onclick = function() {
         Level9Auto();
-    }
+3    }
     button3.onclick = function() {
         GameOverScene();
         alert("Je ziet door de bomen het bos niet meer en verdwaalt!");
@@ -47,18 +40,14 @@ function Level2Bos () {
 
 function Level3Klif () {
     image.src = "Images/Klif.jpg"
-
-    document.getElementById("1").innerHTML = "Keuze 1 = Spring van de klif het water in om je zoektocht voort te zetten?"
-    document.getElementById("2").innerHTML = "Keuze 2 = Ga naar een vuurtoren die je in de verte op de klif ziet staan?"
-    document.getElementById("3").innerHTML = "Keuze 3 = Neem een trap rechts van je en keer terug naar de baai?"
-    
-    document.getElementById("description").innerHTML = "Je komt aan bij een klif die uitkijkt over de oceaan"
+   
+    document.getElementById("description").innerHTML = "Je komt aan bij een klif die uitkijkt over de oceaan <br><br> Keuze 1 = Spring van de klif het water in om je zoektocht voort te zetten?<br> Keuze 2 =  Ga naar een vuurtoren die je in de verte op de klif ziet staan?<br> Keuze 3 = Neem een trap rechts van je en keer terug naar de baai?";
     document.getElementById("title").innerHTML = "Level 3 Klif";
 
 
     button1.onclick = function() {
-        GameOverScene();
         alert("Volgende keer misschien even kijken voor dat je springt. Dat was namelijk geen water waar je op landde.");
+        GameOverScene();
     }
     button2.onclick = function() {
         Level6Vuurtoren();
@@ -73,18 +62,14 @@ function Level3Klif () {
 function Level4Oceaan () {
     image.src = "Images/Oceaan.jpg"
 
-    document.getElementById("1").innerHTML = "Keuze 1 = Ga terug naar de baai?"
-    document.getElementById("2").innerHTML = "Keuze 2 = Gebruik een motor om verder de Oceaan op te varen?"
-    document.getElementById("3").innerHTML = "Keuze 3 = Gooi je vishengel uit?"
-
-    document.getElementById("description").innerHTML = "Je bent nu op de oceaan"
+    document.getElementById("description").innerHTML = "Je bent nu op de oceaan <br><br> Keuze 1 =  Ga terug naar de baai?<br> Keuze 2 = Gebruik een motor om verder de Oceaan op te varen(Motor)?<br> Keuze 3 = Gooi je vishengel uit?"
     document.getElementById("title").innerHTML = "Level 4 Oceaan";
 
     button1.onclick = function() {
         level1Baai();
     }
     button2.onclick = function() {
-        level5Wrak();
+        level5Wrak(); //item 4
     }
     button3.onclick = function() {
         vishengel();
@@ -94,11 +79,7 @@ function Level4Oceaan () {
 function level5Wrak () {
     image.src = "Images/Wrak.jpg"
 
-    document.getElementById("1").innerHTML = "Keuze 1 = Ga terug naar de baai?"
-    document.getElementById("2").innerHTML = "Keuze 2 = Duik het water in en zwem naar het wrak?(Duikers spullen nodig)"
-    document.getElementById("3").innerHTML = "Keuze 2 = Ga terug richting de klif?"
-
-    document.getElementById("description").innerHTML = "Je bent ver op de oceaan. En ziet het wrak waar de verhalen beschrijven de schat zal liggen."
+    document.getElementById("description").innerHTML = "Je bent ver op de oceaan. En ziet het wrak waar de verhalen beschrijven de schat zal liggen. <br><br> Keuze 1 = Keuze 1 = Ga terug naar de baai<br> Keuze 2 = Duik het water in en zwem naar het wrak?(Duikers spullen nodig) <br> Keuze 3 = Ga terug richting de kust?";
     document.getElementById("title").innerHTML = "Level 5 Wrak";
     
     button1.onclick = function() {
@@ -107,7 +88,9 @@ function level5Wrak () {
     button2.onclick = function() {
         GameOverScene();
         alert("Je bent geen vis dus lang onderwater blijven word hem niet!")
-        //item 4 nodig
+        //item 2 nodig
+
+        // vind item 3
     }
     button3.onclick = function() {
         Level4Oceaan();
@@ -118,11 +101,7 @@ function level5Wrak () {
 function Level6Vuurtoren () {
     image.src = "Images/Vuurtoren.jpg"
 
-    document.getElementById("1").innerHTML = "Keuze 1 = Loop langs de klif"
-    document.getElementById("2").innerHTML = "Keuze 2 = Ga de vuurtoren in"
-    document.getElementById("3").innerHTML = "Keuze 3 = Ga het schuurtje naast de vuurtoren in"
-
-    document.getElementById("description").innerHTML = "Je staat voor een vuurtoren en een schuurtje."
+    document.getElementById("description").innerHTML = "Je staat voor een vuurtoren en een schuurtje. <br><br> Keuze 1 = Loop langs de klif<br> Keuze 2 = Ga de vuurtoren in<br> Keuze 3 = Ga het schuurtje naast de vuurtoren in";
     document.getElementById("title").innerHTML = "Level 6 Vuurtoren";
 
     button1.onclick = function() {
@@ -130,6 +109,7 @@ function Level6Vuurtoren () {
     }
     button2.onclick = function() {
         Level8VuurtorenVijand();
+        //item 3 nodig
     }
     button3.onclick = function() {
         Level7Schuurtje();
@@ -140,11 +120,7 @@ function Level6Vuurtoren () {
 function Level7Schuurtje () {
     image.src = "Images/Schuur.jpg"
 
-    document.getElementById("1").innerHTML = "Keuze 1 = Ga naar buiten?"
-    document.getElementById("2").innerHTML = "Keuze 2 = Aai het lieve harige beestje in de kooi op de werkbank?"
-    document.getElementById("3").innerHTML = "Keuze 3 = Doorzoek het schuurtje?"
-
-    document.getElementById("description").innerHTML = "Je bent in het schuurtje. Er liggen een hoop spullen"
+    document.getElementById("description").innerHTML = "Je bent in het schuurtje. Er liggen een hoop spullen. <br> Keuze 1 = Ga naar buiten?<br> Keuze 2 = Aai het lieve harige beessie in de kooi op de werkbank?<br> Keuze 3 = Doorzoek het schuurtje?";
     document.getElementById("title").innerHTML = "Level 7 Schuurtje";
 
     
@@ -152,22 +128,18 @@ function Level7Schuurtje () {
         Level6Vuurtoren();
     }
     button2.onclick = function() {
+        alert("Het lieve harige beessie bijt je vinger eraf!");
         GameOverScene();
-        alert("Het lieve harige beestje bijt je vinger eraf!");
     }
     button3.onclick = function() {
-        //item (2)
+        
     }
 }
 
 function Level8VuurtorenVijand () {
     image.src = "Images/vuurtorenBinnen.jpg"
 
-    document.getElementById("1").innerHTML = "Keuze 1 = Duw"
-    document.getElementById("2").innerHTML = "Keuze 2 = Schiet(Pijl en boog)"
-    document.getElementById("3").innerHTML = "Keuze 3 = Sla"
-
-    document.getElementById("description").innerHTML = "Je Bent nu in de vuurtoren op de bovenste verdieping. Je staat nu oog in oog met een rivaal die ook naar de schat opzoek is."
+    document.getElementById("description").innerHTML = "Je bent nu in de vuurtoren op de bovenste verdieping. Je staat nu oog in oog met een rivaal die ook naar de schat opzoek is. <br><br> Keuze 1 = Duw<br> Keuze 2 = Schiet(Pijl en Boog)<br> Keuze 3 = Sla";
     document.getElementById("title").innerHTML = "Level 8 Vuurtoren Binnen";
 
     
@@ -182,8 +154,8 @@ function Level8VuurtorenVijand () {
     }
 
         function Duw () {
-            alert("Je geeft je rivaal een duw. Hij valt uit het raam de oceaan in. Beneden in het water hoor je hem nog iets schreeuwen over wraak.")
-            Level6Vuurtoren();
+            alert("Je loopt op je rivaal af maar je ziet net te laat dat hij een lief harig beessie uit zijn jas haalt en hem op je af gooit!")
+            GameOverScene();
         }
 
         function Schiet () {
@@ -213,19 +185,16 @@ function Level8VuurtorenVijand () {
 function Level9Auto () {
     image.src = "Images/Auto.jpeg"
 
-    document.getElementById("1").innerHTML = "Keuze 1 = Open kofferbak"
-    document.getElementById("2").innerHTML = "Keuze 2 = Ga terug"
-    document.getElementById("3").innerHTML = "Keuze 3 = Loop verder langs de auto door het bos"
-
-    document.getElementById("description").innerHTML = "Je komt aan bij een open plek, tussen wat bomen staat een oude auto met een kist achterin."
-    document.getElementById("title").innerHTML = "Level 9 Auto";
+    document.getElementById("description").innerHTML = "Je komt aan bij een open plek, tussen wat bomen staat een oude auto met een kist achterin. <br> Keuze 1 = Open kofferbak<br> Keuze 2 = Ga terug<br> Keuze 3 = Loop verder langs de auto door het bos";
+    document.getElementById("title").innerHTML = "Level 9 Auto"
 
     
     button1.onclick = function() {
-        //item 4
+        alert("Je doet de kofferbak open en vind een volledig set duikersuitrusting!")
     }
     button2.onclick = function() {
         Level2Bos();
+        alert("Je hebt een pijl en boog gevonden!");
     }
     button3.onclick = function() {
         Level6Vuurtoren();
@@ -235,11 +204,7 @@ function Level9Auto () {
 function vishengel () {
     image.src = "Images/Vissen.jpg"
 
-    document.getElementById("1").innerHTML = "Keuze 1 = Stop met hengelen"
-    document.getElementById("2").innerHTML = "Keuze 2 = Vang een vis"
-    document.getElementById("3").innerHTML = "Keuze 3 = Wacht rustig af"
-
-    document.getElementById("description").innerHTML = "Je hebt je hengel uitgegooid"
+    document.getElementById("description").innerHTML = "Je hebt je hengel uitgegooid. <br> Keuze 1 = Stop met hengelen<br> Keuze 2 = Vang een vis<br> Keuze 3 = Wacht rustig af";
     document.getElementById("title").innerHTML = "Vissen";
 
     
@@ -259,9 +224,6 @@ function vishengel () {
 function GameOverScene () {
     image.src = "Images/GameOver.jpg"
 
-    var keuzes = document.getElementById("keuzes");
-    keuzes.remove();
-    
     var button = document.getElementById("game-buttons");
     button.remove();
 
