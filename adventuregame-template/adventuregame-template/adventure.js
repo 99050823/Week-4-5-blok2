@@ -1,5 +1,9 @@
 var image = document.getElementById("image");
-var itemImg = document.getElementById("item")
+var itemImg = document.getElementById("Items");
+
+var bow;
+
+var items = [];
 
 function level1Baai () {
     image.src = "Images/Bay.jpg"
@@ -10,7 +14,11 @@ function level1Baai () {
     button1.onclick = Level2Bos;
     
     button2.onclick = function() {
-        Level4Oceaan(); //item 1
+        if (items.includes("boog")) {
+            Level4Oceaan()
+        } else {
+            alert("Je hebt iets nodig om de boot los te maken. Een pijl punt zou scherp genoeg moeten zijn.");
+        }
     } 
     
     button3.onclick = function() {
@@ -69,7 +77,12 @@ function Level4Oceaan () {
         level1Baai();
     }
     button2.onclick = function() {
-        level5Wrak(); //item 4
+        if (items.includes("motor")) {
+            alert("Je gebruikt de motor die je gevonden om verder de oceaan op te varen.");
+            level5Wrak()
+        } else {
+            alert("Met een simpele roeispaan kom je nooit verder de oceaan op.");
+        }
     }
     button3.onclick = function() {
         vishengel();
@@ -79,17 +92,20 @@ function Level4Oceaan () {
 function level5Wrak () {
     image.src = "Images/Wrak.jpg"
 
-    document.getElementById("description").innerHTML = "Je bent ver op de oceaan. En ziet het wrak waar de verhalen beschrijven de schat zal liggen. <br><br> Keuze 1 = Keuze 1 = Ga terug naar de baai<br> Keuze 2 = Duik het water in en zwem naar het wrak?(Duikers spullen nodig) <br> Keuze 3 = Ga terug richting de kust?";
+    document.getElementById("description").innerHTML = "Je bent ver op de oceaan. En ziet het wrak waar de verhalen beschrijven de schat zal liggen. <br><br> Keuze 1 = Ga terug naar de baai<br> Keuze 2 = Duik het water in en zwem naar het wrak?(Duikers spullen nodig) <br> Keuze 3 = Ga terug richting de kust?";
     document.getElementById("title").innerHTML = "Level 5 Wrak";
     
     button1.onclick = function() {
         level1Baai();
     }
     button2.onclick = function() {
-        GameOverScene();
-        alert("Je bent geen vis dus lang onderwater blijven word hem niet!")
-        //item 2 nodig
-
+        if (items.includes("duikerset")) {
+            items.push("sleutel");
+            console.log(items);
+            alert("Je bent naar het wrak gedoken en vond een sleutel met een vuurtoren sleutelhanger.");
+        } else {
+            GameOverScene();
+        }
         // vind item 3
     }
     button3.onclick = function() {
@@ -108,7 +124,12 @@ function Level6Vuurtoren () {
         Level3Klif();
     }
     button2.onclick = function() {
-        Level8VuurtorenVijand();
+        if (items.includes("sleutel")) {
+            alert("De sleutel die je in het wrak gevonden hebt past op de deur.");
+            Level8VuurtorenVijand()
+        } else {
+            alert("Je hebt een sleutel nodig!");
+        }
         //item 3 nodig
     }
     button3.onclick = function() {
@@ -120,7 +141,7 @@ function Level6Vuurtoren () {
 function Level7Schuurtje () {
     image.src = "Images/Schuur.jpg"
 
-    document.getElementById("description").innerHTML = "Je bent in het schuurtje. Er liggen een hoop spullen. <br> Keuze 1 = Ga naar buiten?<br> Keuze 2 = Aai het lieve harige beessie in de kooi op de werkbank?<br> Keuze 3 = Doorzoek het schuurtje?";
+    document.getElementById("description").innerHTML = "Je bent in het schuurtje. Er liggen een hoop spullen. <br><br> Keuze 1 = Ga naar buiten?<br> Keuze 2 = Aai het lieve harige beessie in de kooi op de werkbank?<br> Keuze 3 = Doorzoek het schuurtje?";
     document.getElementById("title").innerHTML = "Level 7 Schuurtje";
 
     
@@ -159,19 +180,26 @@ function Level8VuurtorenVijand () {
         }
 
         function Schiet () {
-            //item (1) nodig
+            if (items.includes("boog")) {
+
+            
             alert("de pijl mist en je rivaal stormt op je af.");
             alert("Kies keuze 1 = Ontwijk. of keuze 2 = Sla");
 
             button1.onclick = function() {
                 alert("Je ontwijkt en je rivaal komt met zijn hoofd tegen de duurpost aan. 'Die slaapt wel even denk je.'");
-                Gewonnen();
                 alert("Achter je rivaal staat de schat!");
+                Gewonnen();
             }
 
             button2.onclick = function() {
                 GameOverScene();
                 alert("Je rivaal raakt je met een lepel op je hoofd!");
+            }
+
+            } else {
+                alert("Game over");
+                GameOverScene();
             }
         }
 
@@ -190,11 +218,15 @@ function Level9Auto () {
 
     
     button1.onclick = function() {
-        alert("Je doet de kofferbak open en vind een volledig set duikersuitrusting!")
+        alert("Je doet de kofferbak open en vind een volledig set duikersuitrusting!");
+        items.push("duikerset");
+        console.log(items);
     }
     button2.onclick = function() {
         Level2Bos();
-        alert("Je hebt een pijl en boog gevonden!");
+        alert("Je hebt een pijl en boog gevonden!"); 
+        items.push("boog");
+        console.log(items);
     }
     button3.onclick = function() {
         Level6Vuurtoren();
@@ -234,7 +266,7 @@ function GameOverScene () {
 function Gewonnen () {
     image.src = "Images/Schat.jfif"
 
-    var keuzes = document.getElementById("keuzes");
+    var keuzes = document.getElementById("game-buttons");
     keuzes.remove();
 
     document.getElementById("description").innerHTML = "Je hebt de schat gevonden!";
