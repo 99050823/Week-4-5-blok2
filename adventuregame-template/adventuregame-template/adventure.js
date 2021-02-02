@@ -1,8 +1,6 @@
 var image = document.getElementById("image");
 var itemImg = document.getElementById("Items");
 
-var bow;
-
 var items = [];
 
 function level1Baai () {
@@ -134,6 +132,7 @@ function Level6Vuurtoren () {
     }
     button3.onclick = function() {
         Level7Schuurtje();
+
     }
 
 }
@@ -153,7 +152,8 @@ function Level7Schuurtje () {
         GameOverScene();
     }
     button3.onclick = function() {
-        
+        items.push("motor");
+        alert("Je hebt een motor gevonden.");
     }
 }
 
