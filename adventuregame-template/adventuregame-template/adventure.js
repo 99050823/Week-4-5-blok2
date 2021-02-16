@@ -1,7 +1,11 @@
 var image = document.getElementById("image");
-var itemImg = document.getElementById("Items");
+var itemImg = document.getElementById("inventory-Items");
 
-var items = [];
+var items = ["motor", "boog", "duikerset"]; 
+
+var button1 = document.getElementById("button1");
+var button2 = document.getElementById("button2");
+var button3 = document.getElementById("button3");
 
 function level1Baai () {
     image.src = "Images/Bay.jpg"
@@ -27,20 +31,39 @@ function level1Baai () {
 }
 
 function Level2Bos () { 
-    image.src = "Images/Bos.jfif" 
+    image.src = "Images/Bos.jfif"
+    image.style.zIndex = "1";
+    image.style.position = "relative";
 
     document.getElementById("description").innerHTML = "Je loopt het bos in <br> <br>Keuze 1 = Door de bomen zie een opening die uitkomt bij een klif. Ga naar de klif?<br> Keuze 2 = In de verte zie een open plek. Ga naar de open plek?<br> Keuze 3 = Loop dieper het bos in?";
     document.getElementById("title").innerHTML = "Level 2 Bos";
+
+    alert("Misschien kun je hier een boog vinden");
+
+    itemImg.src = "Images/boog.png"
+
+    itemImg.style.width = "60px";
+    itemImg.style.height = "60px";
+    itemImg.style.position = "absolute";
+    itemImg.style.bottom = "1cm";
+    itemImg.style.left = "13cm";
+    itemImg.style.zIndex = "2";
 
     button1.onclick = function() {
         Level3Klif();
     }
     button2.onclick = function() {
         Level9Auto();
-3    }
+    }
     button3.onclick = function() {
         GameOverScene();
         alert("Je ziet door de bomen het bos niet meer en verdwaalt!");
+    }
+
+    itemImg.onclick = function () {
+        alert("je hebt een boog opgepakt.");
+        items.push("boog");
+        itemImg.remove();
     }
 }
 
@@ -96,18 +119,30 @@ function level5Wrak () {
     button1.onclick = function() {
         level1Baai();
     }
-    button2.onclick = function() {
+    button2.onclick = function() { 
         if (items.includes("duikerset")) {
-            items.push("sleutel");
-            console.log(items);
-            alert("Je bent naar het wrak gedoken en vond een sleutel met een vuurtoren sleutelhanger.");
+            alert("sleutel");
+
+            itemImg.src = "Images/sleutel.png"
+
+            itemImg.style.width = "80px";
+            itemImg.style.height = "80px";
+            itemImg.style.position = "absolute";
+            itemImg.style.bottom = "5cm";
+            itemImg.style.left = "9cm";
+
         } else {
             GameOverScene();
         }
-        // vind item 3
     }
     button3.onclick = function() {
         Level4Oceaan();
+    }
+
+    itemImg.onclick = function () {
+        items.push("sleutel");
+        console.log(items);
+        itemImg.remove();
     }
 
 }
@@ -224,9 +259,7 @@ function Level9Auto () {
     }
     button2.onclick = function() {
         Level2Bos();
-        alert("Je hebt een pijl en boog gevonden!"); 
-        items.push("boog");
-        console.log(items);
+
     }
     button3.onclick = function() {
         Level6Vuurtoren();
