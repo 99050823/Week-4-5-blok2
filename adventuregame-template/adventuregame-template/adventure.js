@@ -1,11 +1,7 @@
 var image = document.getElementById("image");
 var itemImg = document.getElementById("inventory-Items");
 
-var items = ["motor", "boog", "duikerset"]; 
-
-var button1 = document.getElementById("button1");
-var button2 = document.getElementById("button2");
-var button3 = document.getElementById("button3");
+var items = []; 
 
 function level1Baai () {
     image.src = "Images/Bay.jpg"
@@ -38,9 +34,7 @@ function Level2Bos () {
     document.getElementById("description").innerHTML = "Je loopt het bos in <br> <br>Keuze 1 = Door de bomen zie een opening die uitkomt bij een klif. Ga naar de klif?<br> Keuze 2 = In de verte zie een open plek. Ga naar de open plek?<br> Keuze 3 = Loop dieper het bos in?";
     document.getElementById("title").innerHTML = "Level 2 Bos";
 
-    alert("Misschien kun je hier een boog vinden");
-
-    itemImg.src = "Images/boog.png"
+    itemImg.src = "Images/boog.png";
 
     itemImg.style.width = "60px";
     itemImg.style.height = "60px";
@@ -61,10 +55,11 @@ function Level2Bos () {
     }
 
     itemImg.onclick = function () {
-        alert("je hebt een boog opgepakt.");
+        itemImg.style.display = "none";
         items.push("boog");
-        itemImg.remove();
+        console.log(items);
     }
+
 }
 
 function Level3Klif () {
@@ -121,7 +116,7 @@ function level5Wrak () {
     }
     button2.onclick = function() { 
         if (items.includes("duikerset")) {
-            alert("sleutel");
+            itemImg.style.display = "inline";
 
             itemImg.src = "Images/sleutel.png"
 
@@ -129,7 +124,7 @@ function level5Wrak () {
             itemImg.style.height = "80px";
             itemImg.style.position = "absolute";
             itemImg.style.bottom = "5cm";
-            itemImg.style.left = "9cm";
+            itemImg.style.left = "9cm";	
 
         } else {
             GameOverScene();
@@ -139,12 +134,9 @@ function level5Wrak () {
         Level4Oceaan();
     }
 
-    itemImg.onclick = function () {
-        items.push("sleutel");
-        console.log(items);
-        itemImg.remove();
+    itemImg.onclick = function (){
+        itemImg.style.display = "none";
     }
-
 }
 
 function Level6Vuurtoren () {
@@ -187,8 +179,22 @@ function Level7Schuurtje () {
         GameOverScene();
     }
     button3.onclick = function() {
+        itemImg.style.display = "inline";	
+
+        itemImg.src = "Images/motor.png"
+
+        itemImg.style.width = "80px";
+        itemImg.style.height = "80px";
+        itemImg.style.position = "absolute";
+        itemImg.style.bottom = "3cm";
+        itemImg.style.left = "9cm";	
+    }
+
+    itemImg.onclick = function () {
+        itemImg.style.display = "none";
+        alert("Je hebt een boot motor opgepakt, misschien past deze achter een roeiboot.");
         items.push("motor");
-        alert("Je hebt een motor gevonden.");
+        console.log(items);
     }
 }
 
