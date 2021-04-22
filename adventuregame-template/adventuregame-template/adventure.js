@@ -3,11 +3,16 @@ var itemImg = document.getElementById("inventory-Items");
 
 var items = []; 
 
-function level1Baai () {
-    image.src = "Images/Bay.jpg"
+function setLevel (backgroundIMG, title, description) {
 
-    document.getElementById("description").innerHTML = "Je komt aan in de baai en je zoektocht naar de schat begint. <br><br> Keuze 1 = Ga het bos in<br> Keuze 2 = Schiet met een pijl op de vastgeknoopte boot. En de gebruik een roeispaan om de Oceaan op te varen.(Pijl en boog)<br> Keuze 3 = Je hebt je bedacht en komt tot het besef dat deze missie te moeilijk is en geeft op.";
-    document.getElementById("title").innerHTML = "Level 1 Baai";
+    image.src = backgroundIMG;
+    document.getElementById("title").innerHTML = title;
+    document.getElementById("description").innerHTML = description;
+}
+
+function level1Baai () {
+
+    setLevel("Images/Bay.jpg" ,"Level 1 Baai", "Je komt aan in de baai en je zoektocht naar de schat begint. <br><br> Keuze 1 = Ga het bos in<br> Keuze 2 = Schiet met een pijl op de vastgeknoopte boot. En de gebruik een roeispaan om de Oceaan op te varen.(Pijl en boog)<br> Keuze 3 = Je hebt je bedacht en komt tot het besef dat deze missie te moeilijk is en geeft op.");
 
     button1.onclick = Level2Bos;
     
@@ -27,12 +32,10 @@ function level1Baai () {
 }
 
 function Level2Bos () { 
-    image.src = "Images/Bos.jfif"
     image.style.zIndex = "1";
     image.style.position = "relative";
 
-    document.getElementById("description").innerHTML = "Je loopt het bos in <br> <br>Keuze 1 = Door de bomen zie een opening die uitkomt bij een klif. Ga naar de klif?<br> Keuze 2 = In de verte zie een open plek. Ga naar de open plek?<br> Keuze 3 = Loop dieper het bos in?";
-    document.getElementById("title").innerHTML = "Level 2 Bos";
+    setLevel("Images/Bos.jfif", "Level 2 Bos", "Je loopt het bos in <br> <br>Keuze 1 = Door de bomen zie een opening die uitkomt bij een klif. Ga naar de klif?<br> Keuze 2 = In de verte zie een open plek. Ga naar de open plek?<br> Keuze 3 = Loop dieper het bos in?")
 
     itemImg.src = "Images/boog.png";
 
@@ -63,12 +66,9 @@ function Level2Bos () {
 }
 
 function Level3Klif () {
-    image.src = "Images/Klif.jpg"
+    
+    setLevel("Images/Klif.jpg", "Level 3 Klif","Je komt aan bij een klif die uitkijkt over de oceaan <br><br> Keuze 1 = Spring van de klif het water in om je zoektocht voort te zetten?<br> Keuze 2 =  Ga naar een vuurtoren die je in de verte op de klif ziet staan?<br> Keuze 3 = Neem een trap rechts van je en keer terug naar de baai?")
    
-    document.getElementById("description").innerHTML = "Je komt aan bij een klif die uitkijkt over de oceaan <br><br> Keuze 1 = Spring van de klif het water in om je zoektocht voort te zetten?<br> Keuze 2 =  Ga naar een vuurtoren die je in de verte op de klif ziet staan?<br> Keuze 3 = Neem een trap rechts van je en keer terug naar de baai?";
-    document.getElementById("title").innerHTML = "Level 3 Klif";
-
-
     button1.onclick = function() {
         alert("Volgende keer misschien even kijken voor dat je springt. Dat was namelijk geen water waar je op landde.");
         GameOverScene();
@@ -136,6 +136,8 @@ function level5Wrak () {
 
     itemImg.onclick = function (){
         itemImg.style.display = "none";
+        items.push("sleutel");
+        console.log(items);
     }
 }
 
